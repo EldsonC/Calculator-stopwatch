@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 
     header {
         padding: 0px 45px;
+        margin-bottom: 41px;
 
         width: calc(100% - 90px);
         height: 50px;

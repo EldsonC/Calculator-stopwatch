@@ -1,5 +1,9 @@
+import { Display_Style } from "../style/display";
+
 export const Display = () => {
     return (
-        <div></div>
+        <Display_Style>
+            
+        </Display_Style>
     );
 };

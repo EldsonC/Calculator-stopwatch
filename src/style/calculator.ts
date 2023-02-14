@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const CalculatorStyle = styled.div `
-
     width: 586px;
     height: 532px;
 
