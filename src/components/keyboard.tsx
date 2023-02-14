@@ -5,7 +5,7 @@ import { MultiplyIcon } from "../assets/icon/multiply";
 import { ResultIcon } from "../assets/icon/result";
 import { Keyboard_Style } from "../style/keyboard";
 
-import { getValues } from "../redux/features/keyboardSlice";
+import { getValues, operation, result, clearDisplay } from "../redux/features/keyboardSlice";
 
 import { useDispatch } from "react-redux";
 
@@ -14,6 +14,10 @@ export const Keyboard = () => {
 
     const getButtonValue = (value:number) => {
         dispatch(getValues(value))
+    }
+
+    const operationState = (operationState: string) => {
+        dispatch(operation(operationState))
     }
 
     return (
@@ -31,24 +35,24 @@ export const Keyboard = () => {
                     <button onClick={() => getButtonValue(3)}>3</button>
                     <button onClick={() => getButtonValue(0)}>0</button>
                     <button>.</button>
-                    <button id="btn-del">del</button>
+                    <button id="btn-del" onClick={() => dispatch(clearDisplay())}>del</button>
                 </div>
                 <div className="keyboard-operations">
                     <div className="container-operators">
-                        <button>
+                        <button onClick={() => operationState("divider")}>
                             <DividerIcon/>
                         </button>
-                        <button>
+                        <button onClick={() => operationState("multiply")}>
                             <MultiplyIcon/>
                         </button>
-                        <button>
+                        <button onClick={() => operationState("min")}>
                             <MinIcon/>
                         </button>
-                        <button>
+                        <button onClick={() => operationState("max")}>
                             <MaxIcon/>
                         </button>
                     </div>
-                    <button id="result-button">
+                    <button id="result-button" onClick={() => dispatch(result())}>
                         <ResultIcon/>
                     </button>
                 </div>
